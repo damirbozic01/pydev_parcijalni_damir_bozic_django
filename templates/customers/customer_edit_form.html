@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Edit Customer{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Page Header -->
+    <div class="row my-4 align-items-center">
+        <div class="col-md-6">
+            <h2 class="mb-0">Edit Customer</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <a href="{% url 'customer_list' %}" class="btn btn-secondary">Back to Customers</a>
+        </div>
+    </div>
+
+    <!-- Customer Form -->
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Customer Name</label>
+                            <input type="text" name="name" id="name" class="form-control" value="{{ product.name }}" required>
+                        </div>
+
+                        <!-- vat_id -->
+                        <div class="mb-3">
+                            <label for="vat_id" class="form-label">Vat_id</label>
+                            <textarea name="vat_id" id="vat_id" class="form-control">{{ customer.description }}</textarea>
+                        </div>
+
+                        <!-- city -->
+                        <div class="mb-3">
+                            <label for="city" class="form-label">City</label>
+                            <textarea name="city" id="city" class="form-control">{{ customer.description }}</textarea>
+                        </div>
+                        
+                        <!-- country -->
+                        <div class="mb-3">
+                            <label for="country" class="form-label">Country</label>
+                            <textarea name="country" id="country" class="form-control">{{ customer.description }}</textarea>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" class="btn btn-primary">Update Product</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
